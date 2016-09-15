@@ -1,17 +1,23 @@
 module.exports = (Franz, options) => {
+    setTimeout(() => {
+        location.reload();
+    }, 90000);
+
+    const latest = localStorage.getItem("Franz.QiitaTeam.latest");
+    const now = $('div.teamItems .teamItems_element_datetime')[0].title;
+    var unread = 0;
+
+    if (latest && latest != now) {
+        unread = 1;
+    }
+
+    localStorage.setItem("Franz.QiitaTeam.latest", now);
+
     function getMessages() {
         $('h1.teamItems_element_title a').each((i, e) => {
             $(e).attr('target', '_blank');
         });
 
-        var unread = 0;
-        const flush = $('div.flush-button.active')[0];
-        if (flush) {
-            const res = flush.textContent.match(/(\d+) 件の新しいアクティビティ/);
-            if(res) {
-                unread = res[1];
-            }
-        }
         const notify = parseInt($('div.globalNotifications_count')[0].textContent)
         Franz.setBadge(notify, unread);
     }
