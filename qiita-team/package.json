@@ -1,0 +1,25 @@
+{
+  "name": "qiita-team",
+  "version": "1.0.0",
+  "description": "qiita-team",
+  "main": "index.js",
+  "author": "Kan Fushihara <kan.fushihara@gmail.com>",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://{teamID}.qiita.com/",
+    "serviceName": "Qiita:Team",
+    "message": "",
+    "popup": [],
+    "hasNotificationSound": true,
+    "hasIndirectMessages": false,
+    "hasTeamID": true,
+    "wording": {
+        "url": "qiita.com",
+        "team": "Qiita"
+    },
+    "webviewOptions": {
+      "disablewebsecurity": ""
+    },
+    "openDevTools": false
+  }
+}
